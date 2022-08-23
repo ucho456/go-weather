@@ -21,15 +21,16 @@ func (w *Weather) ToString() string {
 	return result
 }
 
-func GetWeather() (string, error) {
-	body, err := reqWeather("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json")
+func GetWeather(c string) (string, error) {
+	url := fmt.Sprintf("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/%s.json", c)
+	body, err := reqWeather(url)
 	if err != nil {
-		return "error", err
+		return "", err
 	}
 
 	weather, err := toStruct(body)
 	if err != nil {
-		return "error", err
+		return "", err
 	}
 
 	result := weather.ToString()
@@ -54,7 +55,6 @@ func reqWeather(url string) ([]byte, error) {
 func toStruct(body []byte) (*Weather, error) {
 	weather := new(Weather)
 	if err := json.Unmarshal(body, weather); err != nil {
-		err = fmt.Errorf("JSON Unmarshal error: %s", err)
 		return nil, err
 	}
 	return weather, nil
