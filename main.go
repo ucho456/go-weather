@@ -1,7 +1,7 @@
-package main
+package GoWeather
 
 import "fmt"
 
-func main() {
+func GoWeather() {
 	fmt.Println("Hello world")
 }
