@@ -6,6 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: weather
+    env_file:
+      - ./.env.yaml
     ports:
       - "80:80"
     volumes:
