@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/line/line-bot-sdk-go/linebot"
+	"github.com/ucho456/go_weather/weather"
 )
 
 func main() {
@@ -21,7 +22,10 @@ func GoWeather(ctx context.Context) error {
 		log.Fatal(err)
 	}
 
-	result := "Hello world"
+	result, err := weather.GetWeather()
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	message := linebot.NewTextMessage(result)
 	if _, err := bot.BroadcastMessage(message).Do(); err != nil {
