@@ -20,7 +20,9 @@ deploy:	## deploy to Cloud Functions
 					--region=asia-northeast1 \
 					--source=. \
 					--entry-point=GoWeather \
+					--env-vars-file .env.yaml \
 					--trigger-http \
+					--allow-unauthenticated
 
 help:	## Show options
 				@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
