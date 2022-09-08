@@ -4,7 +4,11 @@
 Golangの学習後、Golang * Cloud Functions * LINE BOT でさくっと作った練習用のサービスです。
 
 ## QRコード
-![QRコード](https://qr-official.line.me/sid/L/662bwhhi.png)
+![662bwhhi.png](https://qr-official.line.me/sid/L/662bwhhi.png)
+
+QRコードリンク
+
+https://qr-official.line.me/sid/L/662bwhhi.png
 
 # 使用技術
 Golang 1.16
